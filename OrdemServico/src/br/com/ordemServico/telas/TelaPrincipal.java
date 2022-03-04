@@ -4,6 +4,10 @@
  */
 package br.com.ordemServico.telas;
 
+import java.text.DateFormat;
+import java.util.Date;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Isac Caldas
@@ -26,21 +30,167 @@ public class TelaPrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        Desktop = new javax.swing.JDesktopPane();
+        jLabel1 = new javax.swing.JLabel();
+        lblUser = new javax.swing.JLabel();
+        lblDate = new javax.swing.JLabel();
+        Menu = new javax.swing.JMenuBar();
+        itemCadCli = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
+        itemCadOS = new javax.swing.JMenuItem();
+        itemCadUser = new javax.swing.JMenuItem();
+        itemRel = new javax.swing.JMenu();
+        itemRelService = new javax.swing.JMenuItem();
+        itemHelp = new javax.swing.JMenu();
+        itemHelpSobre = new javax.swing.JMenuItem();
+        itemOpcExit = new javax.swing.JMenu();
+        jMenuItem6 = new javax.swing.JMenuItem();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Sistema para Controle de Ordem de Serviço");
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowActivated(java.awt.event.WindowEvent evt) {
+                formWindowActivated(evt);
+            }
+        });
+
+        javax.swing.GroupLayout DesktopLayout = new javax.swing.GroupLayout(Desktop);
+        Desktop.setLayout(DesktopLayout);
+        DesktopLayout.setHorizontalGroup(
+            DesktopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 692, Short.MAX_VALUE)
+        );
+        DesktopLayout.setVerticalGroup(
+            DesktopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/ordemServico/icones/os.jpg"))); // NOI18N
+
+        lblUser.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        lblUser.setText("Usuário");
+
+        lblDate.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        lblDate.setText("Data");
+
+        itemCadCli.setText("Cadastro");
+
+        jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.ALT_DOWN_MASK));
+        jMenuItem1.setText("Cliente");
+        itemCadCli.add(jMenuItem1);
+
+        itemCadOS.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_O, java.awt.event.InputEvent.ALT_DOWN_MASK));
+        itemCadOS.setText("OS");
+        itemCadCli.add(itemCadOS);
+
+        itemCadUser.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_U, java.awt.event.InputEvent.ALT_DOWN_MASK));
+        itemCadUser.setText("Usuários");
+        itemCadUser.setEnabled(false);
+        itemCadCli.add(itemCadUser);
+
+        Menu.add(itemCadCli);
+
+        itemRel.setText("Relatório");
+        itemRel.setEnabled(false);
+
+        itemRelService.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.ALT_DOWN_MASK));
+        itemRelService.setText("Serviços");
+        itemRel.add(itemRelService);
+
+        Menu.add(itemRel);
+
+        itemHelp.setText("Ajuda");
+
+        itemHelpSobre.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F1, java.awt.event.InputEvent.ALT_DOWN_MASK));
+        itemHelpSobre.setText("Sobre");
+        itemHelpSobre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itemHelpSobreActionPerformed(evt);
+            }
+        });
+        itemHelp.add(itemHelpSobre);
+
+        Menu.add(itemHelp);
+
+        itemOpcExit.setText("Opções");
+
+        jMenuItem6.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F4, java.awt.event.InputEvent.ALT_DOWN_MASK));
+        jMenuItem6.setText("Sair");
+        jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem6ActionPerformed(evt);
+            }
+        });
+        itemOpcExit.add(jMenuItem6);
+
+        Menu.add(itemOpcExit);
+
+        setJMenuBar(Menu);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(Desktop, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(28, 28, 28)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblUser)
+                            .addComponent(lblDate)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(11, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(lblUser)
+                        .addGap(18, 18, 18)
+                        .addComponent(lblDate, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(37, 37, 37)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 215, Short.MAX_VALUE))
+                    .addComponent(Desktop))
+                .addContainerGap())
         );
 
-        pack();
+        setSize(new java.awt.Dimension(959, 601));
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
+        
+        // Recupera o valor da data atual ao inicializar o formulário. 
+        Date data = new Date();
+        DateFormat formatador = DateFormat.getDateInstance(DateFormat.SHORT);
+        
+        lblDate.setText(formatador.format(data));
+    }//GEN-LAST:event_formWindowActivated
+
+    private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
+        // Exibe uma caixa de diálogo.
+        int sair = JOptionPane.showConfirmDialog(null, "Tem certeza que deseja sair?", "Atenção", JOptionPane.YES_NO_OPTION);
+        
+        if(sair == JOptionPane.YES_OPTION)
+            System.exit(0);
+        
+        
+        
+    }//GEN-LAST:event_jMenuItem6ActionPerformed
+
+    private void itemHelpSobreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemHelpSobreActionPerformed
+        // Aciona a tela sobre
+        TelaSobre sobre = new TelaSobre();
+        sobre.setVisible(true);
+        
+    }//GEN-LAST:event_itemHelpSobreActionPerformed
 
     /**
      * @param args the command line arguments
@@ -78,5 +228,20 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JDesktopPane Desktop;
+    private javax.swing.JMenuBar Menu;
+    private javax.swing.JMenu itemCadCli;
+    private javax.swing.JMenuItem itemCadOS;
+    public static javax.swing.JMenuItem itemCadUser;
+    private javax.swing.JMenu itemHelp;
+    private javax.swing.JMenuItem itemHelpSobre;
+    private javax.swing.JMenu itemOpcExit;
+    public static javax.swing.JMenu itemRel;
+    private javax.swing.JMenuItem itemRelService;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem6;
+    private javax.swing.JLabel lblDate;
+    private javax.swing.JLabel lblUser;
     // End of variables declaration//GEN-END:variables
 }
